@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Desarrollador Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #6366f1;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+            --orange: #f97316;
+            --green: #10b981;
+            --blue: #3b82f6;
+            --yellow: #fbbf24;
+            --dark: #1e1b4b;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: var(--darker);
+            line-height: 1.6;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--light);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(6,182,212,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.1) translate(20px, -20px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: 800;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .header-text {
+            flex: 1;
+            color: white;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeInLeft 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            animation: fadeInLeft 0.6s ease-out 0.4s both;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            animation: fadeInLeft 0.6s ease-out 0.6s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.7rem 1rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: var(--darker);
+            color: white;
+            padding: 3rem 2.5rem;
+        }
+
+        .content {
+            padding: 3rem;
+            background: var(--light);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .sidebar h2 {
+            color: white;
+        }
+
+        .sidebar h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            border-radius: 2px;
+        }
+
+        .content h2 {
+            color: var(--darker);
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--orange), var(--yellow));
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            color: var(--darker);
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .job-title {
+            color: var(--purple);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 2.5rem;
+            padding: 1.8rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border-left: 5px solid var(--purple);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .experience-item:hover,
+        .education-item:hover {
+            transform: translateX(8px) translateY(-4px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-left-color: var(--pink);
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        ul li {
+            padding-left: 2rem;
+            margin-bottom: 0.7rem;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--purple);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category-name {
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-item:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: var(--purple);
+            transform: translateX(5px);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-level {
+            font-size: 0.8rem;
+            color: var(--cyan);
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            border-radius: 4px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+        }
+
+        .tags-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tag:hover {
+            background: var(--purple);
+            border-color: var(--purple);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .profile-text {
+            color: var(--darker);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, var(--card-bg), rgba(99, 102, 241, 0.05));
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--cyan);
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+            border-left-color: var(--purple);
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: var(--darker);
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-org {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--purple), var(--pink), var(--cyan));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .project-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--darker);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .header::before,
+            .header::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-bottom: 4px solid var(--purple);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .avatar {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .header,
+            .sidebar,
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="avatar">TN</div>
+                <div class="header-text">
+                    <h1>Tu Nombre</h1>
+                    <p class="title">Full Stack Developer | Tech Enthusiast</p>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <span class="icon">✉</span>
+                            <span>tu.email@tech.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📱</span>
+                            <span>+52 123 456 7890</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📍</span>
+                            <span>CDMX, México</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">💼</span>
+                            <span>linkedin.com/in/tunombre</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">💻</span>
+                            <span>github.com/tunombre</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">🌐</span>
+                            <span>tuportfolio.dev</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2>Tech Stack</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <div class="skill-category-name">Frontend</div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>React / Next.js</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>TypeScript</span>
+                                    <span class="skill-level">Avanzado</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Vue.js / Nuxt</span>
+                                    <span class="skill-level">Avanzado</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <div class="skill-category-name">Backend</div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Node.js / Express</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Python / Django</span>
+                                    <span class="skill-level">Avanzado</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>GraphQL / REST</span>
+                                    <span class="skill-level">Avanzado</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <div class="skill-category-name">Database & Cloud</div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>PostgreSQL / MongoDB</span>
+                                    <span class="skill-level">Avanzado</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 87%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>AWS / GCP</span>
+                                    <span class="skill-level">Intermedio</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <span>Docker / Kubernetes</span>
+                                    <span class="skill-level">Avanzado</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Idiomas</h2>
+                    <div class="tags-grid">
+                        <span class="tag">🇲🇽 Español - Nativo</span>
+                        <span class="tag">🇺🇸 Inglés - C1</span>
+                        <span class="tag">🇫🇷 Francés - B1</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Intereses</h2>
+                    <div class="tags-grid">
+                        <span class="tag">🤖 AI/ML</span>
+                        <span class="tag">⛓️ Web3</span>
+                        <span class="tag">🎨 UI/UX</span>
+                        <span class="tag">🚀 Startups</span>
+                        <span class="tag">📱 Mobile Dev</span>
+                        <span class="tag">🎮 Gaming</span>
+                        <span class="tag">📸 Tech Photography</span>
+                        <span class="tag">🎵 Electronic Music</span>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2>👋 Sobre Mí</h2>
+                    <div class="profile-card">
+                        <p class="profile-text">
+                            Desarrollador Full Stack apasionado con más de 5 años construyendo productos digitales 
+                            que impactan a millones de usuarios. Me especializo en crear experiencias web modernas, 
+                            rápidas y escalables usando las últimas tecnologías del ecosistema JavaScript. 
+                            Amante del código limpio, las arquitecturas bien diseñadas y la automatización. 
+                            Siempre en busca de nuevos desafíos técnicos y oportunidades para aprender. 
+                            Mi objetivo es trabajar en proyectos innovadores que resuelvan problemas reales 
+                            mientras colaboro con equipos talentosos.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>💼 Experiencia</h2>
+                    
+                    <div class="experience-item">
+                        <h3>TechCorp Innovation</h3>
+                        <div class="job-title">🚀 Senior Full Stack Engineer</div>
+                        <span class="date">Ene 2022 - Presente</span>
+                        <ul>
+                            <li>Arquitecté y desarrollé una plataforma SaaS desde cero que alcanzó 100K+ usuarios activos con React, Next.js 14 y tRPC</li>
+                            <li>Implementé sistema de micro-frontends con Module Federation aumentando la velocidad de desarrollo en 40%</li>
+                            <li>Reduje costos de infraestructura en $15K/mes optimizando queries SQL y migrando a edge computing con Vercel</li>
+                            <li>Lideré squad de 6 desarrolladores aplicando Scrum, pair programming y code reviews rigurosos</li>
+                            <li>Integré CI/CD con GitHub Actions logrando 50+ deploys por semana con 99.9% uptime</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>StartupFin</h3>
+                        <div class="job-title">💻 Full Stack Developer</div>
+                        <span class="date">Mar 2020 - Dic 2021</span>
+                        <ul>
+                            <li>Desarrollé app fintech mobile-first con React Native procesando +$5M USD en transacciones mensuales</li>
+                            <li>Construí APIs RESTful y GraphQL con Node.js y Apollo Server manejando 500K+ requests/día</li>
+                            <li>Implementé autenticación multi-factor y encryption end-to-end cumpliendo PCI DSS standards</li>
+                            <li>Alcancé 92% code coverage con Jest, Testing Library y Cypress para testing E2E</li>
+                            <li>Optimicé performance logrando Lighthouse score de 95+ en todas las métricas</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>Digital Agency Pro</h3>
+                        <div class="job-title">🎨 Frontend Developer</div>
+                        <span class="date">Jun 2018 - Feb 2020</span>
+                        <ul>
+                            <li>Creé 30+ sitios web responsivos para clientes Fortune 500 con React, Vue y WordPress headless</li>
+                            <li>Desarrollé design system reutilizable con Storybook reduciendo tiempo de desarrollo en 60%</li>
+                            <li>Mejoré SEO y accesibilidad siguiendo WCAG 2.1 AA, logrando rankings top 3 en Google</li>
+                            <li>Implementé animaciones avanzadas con GSAP y Framer Motion para experiencias premium</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>🎓 Educación</h2>
+                    
+                    <div class="education-item">
+                        <h3>Instituto Tecnológico y de Estudios Superiores</h3>
+                        <div class="job-title">Ingeniería en Sistemas Computacionales</div>
+                        <span class="date">2014 - 2018</span>
+                        <ul>
+                            <li>Promedio: 9.3/10 - Mención Honorífica</li>
+                            <li>Tesis: "Aplicación de Deep Learning para Detección de Anomalías en IoT"</li>
+                            <li>Líder del Google Developer Student Club (2017-2018)</li>
+                            <li>1er Lugar en Hackathon Nacional de IA (2017)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>🏆 Certificaciones</h2>
+                    <div class="cert-item">
+                        <div class="cert-name">AWS Certified Solutions Architect - Professional</div>
+                        <div class="cert-org">Amazon Web Services • 2024</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Google Cloud Professional Cloud Developer</div>
+                        <div class="cert-org">Google Cloud • 2023</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Meta Frontend Developer Professional Certificate</div>
+                        <div class="cert-org">Meta • 2022</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">MongoDB Certified Developer Associate</div>
+                        <div class="cert-org">MongoDB University • 2021</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>🚀 Proyectos Destacados</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-title">TaskFlow AI</div>
+                            <p>Plataforma de gestión de proyectos potenciada por IA con 10K+ usuarios. Genera automáticamente timelines y asigna tareas.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">Next.js 14</span>
+                                <span class="tech-badge">OpenAI</span>
+                                <span class="tech-badge">Prisma</span>
+                                <span class="tech-badge">PostgreSQL</span>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title">CryptoTracker Pro</div>
+                            <p>Dashboard real-time para tracking de 5000+ criptomonedas con charts interactivos y alertas personalizadas.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">WebSocket</span>
+                                <span class="tech-badge">D3.js</span>
+                                <span class="tech-badge">Redis</span>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title">DevHub Community</div>
+                            <p>Red social para desarrolladores con 25K+ miembros. Features: code sharing, live coding sessions, mentorías.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">Vue 3</span>
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">Socket.io</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Animación de barras de habilidades
+        window.addEventListener('load', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 200);
+            });
+        });
+
+        // Efecto parallax suave en el header
+        document.addEventListener('mousemove', function(e) {
+            const header = document.querySelector('.header');
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            
+            const circles = document.querySelectorAll('.header::before, .header::after');
+            header.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        // Intersection Observer para animaciones al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
