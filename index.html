@@ -95,6 +95,42 @@
             50% { transform: scale(1.1) translate(20px, -20px); }
         }
 
+        /* BOTÓN DE NAVEGACIÓN - NUEVO */
+        .nav-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            z-index: 10;
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(135deg, #059669, #0891b2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .nav-button::before {
+            content: '📚';
+            font-size: 1.2rem;
+        }
+
+        /* COMENTARIO: Este es el botón que te redirige a info_materia.html
+           Si cambias el nombre del archivo o la ubicación, modifica el href en la línea del HTML */
+
         .header-content {
             position: relative;
             z-index: 1;
@@ -541,6 +577,9 @@
             .header::after {
                 display: none;
             }
+            .nav-button {
+                display: none;
+            }
         }
 
         @media (max-width: 1200px) {
@@ -567,6 +606,7 @@
             }
             h1 {
                 font-size: 2.5rem;
+                margin-top: 1rem;
             }
             .header,
             .sidebar,
@@ -576,12 +616,28 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+            .nav-button {
+                position: static;
+                margin: 0 auto 2rem auto;
+                display: flex;
+                width: fit-content;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
+            <!-- BOTÓN DE NAVEGACIÓN - Aquí está el enlace a info_materia.html -->
+            <!-- COMENTARIO: Si tu archivo se llama diferente o está en otra carpeta, 
+                 cambia el href. Ejemplos:
+                 - Mismo directorio: href="info_materia.html"
+                 - Carpeta pages: href="pages/info_materia.html"
+                 - Raíz del sitio: href="/info_materia.html" -->
+            <a href="info_materia.html" class="nav-button">
+                Retícula Curricular
+            </a>
+
             <div class="header-content">
                 <div class="avatar">TN</div>
                 <div class="header-text">
